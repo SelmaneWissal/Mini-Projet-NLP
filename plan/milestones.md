@@ -20,12 +20,15 @@ Le projet comporte deux parties principales :
 
 ## 3. Jalons du projet
 
-### Milestone 1 : Installation et exploration initiale
+### Milestone 1a : Installation et configuration
 Besoin :
 - Environnement Python configuré.
 - Librairies installées (`transformers`, `sentence-transformers`, `faiss`, `datasets`, `torch`, etc.).
-- Charger des modèles pré-entraînés et tokenizers.
-- Tester des pipelines simples pour classification, sentiment, QA et résumé.
+
+### Milestone 1b : Exploration des Transformers et tâches NLP
+Besoin :
+- Charger des modèles pré-entraînés et tokenizers depuis le Model Hub.
+- Tester des pipelines simples pour classification de texte, analyse de sentiment, question answering et résumé automatique.
 
 ### Milestone 2 : Recherche et conception du système RAG
 Besoin :
@@ -36,7 +39,7 @@ Besoin :
 
 ### Milestone 3 : Construction du pipeline RAG
 Besoin :
-- Collecter ou préparer un corpus de documents pertinents.
+- Collecter ou préparer un corpus de documents pertinents (extraction depuis des PDFs avec `extract_pdf.py` ou PyMuPDF).
 - Générer des embeddings pour le corpus.
 - Construire un index vectoriel (FAISS ou équivalent).
 - Implémenter la recherche de documents pertinents.
@@ -47,7 +50,7 @@ Besoin :
 Besoin :
 - Écrire des scénarios de test avec des questions sur le corpus.
 - Comparer les réponses obtenues avec et sans RAG.
-- Vérifier la qualité et la pertinence des résultats.
+- Vérifier la qualité et la pertinence des résultats (évaluation qualitative + métriques quantitatives : BLEU, ROUGE, BERTScore, ou jugement manuel structuré 1-5).
 - Mesurer la robustesse du système et corriger les problèmes.
 
 ### Milestone 5 : Documentation et livrables

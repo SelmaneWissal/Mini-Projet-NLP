@@ -3,8 +3,13 @@ sentence-transformers
 faiss-cpu
 torch
 numpy
+pandas
 scikit-learn
 datasets
 tqdm
 sentencepiece
 PyPDF2
+jupyter
+ipykernel
+evaluate
+matplotlib
