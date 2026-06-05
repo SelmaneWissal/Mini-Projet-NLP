@@ -57,9 +57,9 @@ DATA_DIR   = BASE_DIR / "data"
 
 # Taille des échantillons pour ne pas surcharger le disque
 SAMPLE_SIZES = {
-    "train": 2000,
-    "validation": 500,
-    "test": 200,
+    "train": 400,
+    "validation": 100,
+    "test": 50,
 }
 
 # ─── Catalogue des datasets ──────────────────────────────────────────────────
@@ -67,7 +67,7 @@ DATASETS_CONFIG = {
 
     # ── 1. SST-2 : Sentiment Analysis ────────────────────────────────────────
     "sst2": {
-        "hf_path":      "sst2",
+        "hf_path":      "stanfordnlp/sst2",
         "hf_name":      None,
         "description":  "Stanford Sentiment Treebank v2. Phrases extraites de critiques "
                         "de cinéma annotées POSITIF/NÉGATIF. Dataset de référence pour "
@@ -82,7 +82,7 @@ DATASETS_CONFIG = {
 
     # ── 2. AG News : Classification de texte ─────────────────────────────────
     "ag_news": {
-        "hf_path":      "ag_news",
+        "hf_path":      "fancyzhx/ag_news",
         "hf_name":      None,
         "description":  "AG News Corpus. Articles de presse classés en 4 catégories : "
                         "World, Sports, Business, Science/Technology. 120K exemples "
@@ -97,7 +97,7 @@ DATASETS_CONFIG = {
 
     # ── 3. SQuAD v2 : Question Answering ─────────────────────────────────────
     "squad_v2": {
-        "hf_path":      "squad_v2",
+        "hf_path":      "rajpurkar/squad_v2",
         "hf_name":      None,
         "description":  "Stanford Question Answering Dataset v2. 130K+ paires "
                         "question-contexte-réponse extraites de Wikipedia. SQuAD v2 "
@@ -111,7 +111,7 @@ DATASETS_CONFIG = {
 
     # ── 4. CNN/DailyMail : Résumé automatique ────────────────────────────────
     "cnn_dailymail": {
-        "hf_path":      "cnn_dailymail",
+        "hf_path":      "abisee/cnn_dailymail",
         "hf_name":      "3.0.0",
         "description":  "Dataset CNN/Daily Mail pour le résumé automatique. Articles "
                         "de presse avec leurs highlights comme résumés de référence. "
@@ -125,7 +125,7 @@ DATASETS_CONFIG = {
 
     # ── 5. CoNLL-2003 : NER ───────────────────────────────────────────────────
     "conll2003": {
-        "hf_path":      "conll2003",
+        "hf_path":      "eriktks/conll2003",
         "hf_name":      None,
         "description":  "CoNLL-2003 Named Entity Recognition. Articles Reuters annotés "
                         "avec 4 types d'entités : PER (personnes), ORG (organisations), "
@@ -549,7 +549,7 @@ def telecharger_cnn_dailymail(config: dict) -> dict:
 def telecharger_conll2003(config: dict) -> dict:
     """Télécharge et prépare CoNLL-2003."""
     logger.info("📥 Téléchargement CoNLL-2003...")
-    raw = load_dataset(config["hf_path"], trust_remote_code=True)
+    raw = load_dataset(config["hf_path"])
     save_dir = DATA_DIR / "raw" / "conll2003"
     save_dir.mkdir(exist_ok=True)
 
